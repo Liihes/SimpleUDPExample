@@ -29,12 +29,14 @@ class Program
       string text_to_send = Console.ReadLine();
       
       if (text_to_send.Length == 0) { done = true; } 
-      else { 
+      else 
+      { 
       byte[] send_buffer = Encoding.ASCII.GetBytes(text_to_send);
       Console.WriteLine("sending to address: {0} port: {1}", sending_end_point.Address, sending_end_point.Port);
       
       try { sending_socket.SendTo(send_buffer, sending_end_point); } 
       catch ( Exception Ex ) { Console.WriteLine("The Massage could not be sent: {0}" , Ex.Message); }
+      }
     }
   }
 } 
